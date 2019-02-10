@@ -3,6 +3,10 @@
 require 'einsum'
 
 RSpec.describe Einsum do
+  it 'has a version number' do
+    expect(Einsum::VERSION).not_to be nil
+  end
+
   describe '.einsum' do
     context 'format' do
       it 'comprises one or more input labels strings and an optional output labels string' do

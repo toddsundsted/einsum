@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'einsum/version'
+
 ##
 # Unoptimized, pure-Ruby implementation of a subset of Numpy `einsum`.
 #
