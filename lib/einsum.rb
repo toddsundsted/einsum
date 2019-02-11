@@ -28,12 +28,12 @@ class Einsum
     #
     # Examples:
     #
-    #   In implicit mode:
+    # Implicit mode:
     #
     #     `Einsum.einsum('ij,jk', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => dot product: [[7, 10], [15, 22]]`
     #     `Einsum.einsum('ij,kj', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => inner product: [[ 5, 11], [11, 25]]`
     #
-    #   In explicit mode:
+    # Explicit mode:
     #
     #     `Einsum.einsum('ij,jk->ik', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => dot product: [[7, 10], [15, 22]]`
     #     `Einsum.einsum('ij,kj->ik', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => inner product: [[ 5, 11], [11, 25]]`
