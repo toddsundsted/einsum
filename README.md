@@ -1,5 +1,8 @@
 # Einsum
 
+[![Build Status](https://travis-ci.org/toddsundsted/einsum.svg?branch=master)](https://travis-ci.org/toddsundsted/einsum)
+[![Documentation](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://toddsundsted.github.io/einsum/)
+
 Unoptimized, pure-Ruby implementation of a subset of Numpy `einsum`.
 
 See: https://docs.scipy.org/doc/numpy/reference/generated/numpy.einsum.html
