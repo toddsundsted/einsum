@@ -3,7 +3,7 @@
 require 'einsum/version'
 
 ##
-# Unoptimized, pure-Ruby implementation of a subset of Numpy `einsum`.
+# Unoptimized, pure-Ruby implementation of a subset of Numpy +einsum+.
 #
 # See: https://docs.scipy.org/doc/numpy/reference/generated/numpy.einsum.html
 #
@@ -24,21 +24,21 @@ class Einsum
     ##
     # Evaluates the (extended) Einstein summation convention on the operands.
     #
-    # Operands must be `Array` like. Array elements must respond to `*` and `+`.
+    # Operands must be Array like. Array elements must respond to * and +.
     #
     # Examples:
     #
     # Implicit mode:
     #
-    #     `Einsum.einsum('ij,jk', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => dot product: [[7, 10], [15, 22]]`
-    #     `Einsum.einsum('ij,kj', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => inner product: [[ 5, 11], [11, 25]]`
+    #     Einsum.einsum('ij,jk', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => dot product: [[7, 10], [15, 22]]
+    #     Einsum.einsum('ij,kj', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => inner product: [[ 5, 11], [11, 25]]
     #
     # Explicit mode:
     #
-    #     `Einsum.einsum('ij,jk->ik', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => dot product: [[7, 10], [15, 22]]`
-    #     `Einsum.einsum('ij,kj->ik', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => inner product: [[ 5, 11], [11, 25]]`
-    #     `Einsum.einsum('ij,jk->', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => 54`
-    #     `Einsum.einsum('ij,kj->', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => 52`
+    #     Einsum.einsum('ij,jk->ik', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => dot product: [[7, 10], [15, 22]]
+    #     Einsum.einsum('ij,kj->ik', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => inner product: [[ 5, 11], [11, 25]]
+    #     Einsum.einsum('ij,jk->', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => 54
+    #     Einsum.einsum('ij,kj->', [[1, 2], [3, 4]], [[1, 2], [3, 4]]) # => 52
     #
     def einsum(format, *operands)
       labels = {}
