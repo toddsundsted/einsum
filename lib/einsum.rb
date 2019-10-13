@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 require 'einsum/version'
@@ -166,7 +167,7 @@ class Einsum
 
     def empty(shape, seed)
       i, *shape = shape
-      seed = empty(shape, seed) unless shape.empty?
+      seed = empty(shape, seed) unless shape.nil? || shape.empty?
       Array.new(i) { clone(seed) }
     end
   end
