@@ -1,5 +1,9 @@
 # Change Log
 
+## [v0.1.3](https://github.com/toddsundsted/einsum/tree/v0.1.3) (2020-03-03)
+
+Update Rake gem (addresses CVE-2020-8130).
+
 ## [v0.1.2](https://github.com/toddsundsted/einsum/tree/v0.1.2) (2019-10-13)
 
 Add support for Sorbet.
