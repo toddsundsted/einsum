@@ -1,7 +1,5 @@
 language: ruby
 
-cache: bundler
-
 rvm:
   - 2.4
   - 2.5
@@ -9,6 +7,9 @@ rvm:
 script:
   - bundle exec rspec
   - bundle exec rdoc README.md lib
+
+before_script: |
+  gem install bundler
 
 deploy:
   provider: pages
