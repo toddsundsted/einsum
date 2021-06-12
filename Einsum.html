@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Einsum - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-einsum">::einsum</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Einsum">
+  <h1 id="class-Einsum" class="class">
+    class Einsum
+  </h1>
+
+  <section class="description">
+    
+<p>Unoptimized, pure-Ruby implementation of a subset of Numpy
+<code>einsum</code>.</p>
+
+<p>See: <a
+href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.einsum.html">docs.scipy.org/doc/numpy/reference/generated/numpy.einsum.html</a></p>
+
+<p>typed: strong frozen_string_literal: true</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="FormatError">FormatError
+        
+        <dd>
+        
+      
+        <dt id="Label">Label
+        
+        <dd>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-einsum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">einsum</span><span
+            class="method-args">(format, *operands)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Evaluates the (extended) Einstein summation convention on the operands.</p>
+
+<p>Operands must be Array like. Array elements must respond to * and +.</p>
+
+<p>Examples:</p>
+
+<p>Implicit mode:</p>
+
+<pre class="ruby"><span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,jk&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; dot product: [[7, 10], [15, 22]]</span>
+<span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,kj&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; inner product: [[ 5, 11], [11, 25]]</span>
+</pre>
+
+<p>Explicit mode:</p>
+
+<pre class="ruby"><span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,jk-&gt;ik&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; dot product: [[7, 10], [15, 22]]</span>
+<span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,kj-&gt;ik&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; inner product: [[ 5, 11], [11, 25]]</span>
+<span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,jk-&gt;&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; 54</span>
+<span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,kj-&gt;&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; 52</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="einsum-source">
+            <pre><span class="ruby-comment"># File lib/einsum.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">einsum</span>(<span class="ruby-identifier">format</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">operands</span>)
+  <span class="ruby-identifier">labels</span> = {}
+
+  <span class="ruby-comment"># check syntax of format string</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">format</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-regexp">/\A([a-z]+(,[a-z]+)*)(-&gt;[a-z]*)?\z/</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">FormatError</span>, <span class="ruby-node">&quot;invalid format: #{format}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># chop up format string</span>
+  <span class="ruby-identifier">inputs</span>, <span class="ruby-identifier">explicit</span>, <span class="ruby-identifier">output</span> = <span class="ruby-identifier">format</span>.<span class="ruby-identifier">partition</span>(<span class="ruby-string">&#39;-&gt;&#39;</span>)
+  <span class="ruby-identifier">inputs</span> = <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">operands</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">FormatError</span>, <span class="ruby-node">&quot;provides #{operands.length} operands for #{inputs.length} input labels strings&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># check labels and operands</span>
+  <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">operands</span>).<span class="ruby-identifier">each</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">operand</span>), <span class="ruby-identifier">pos</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">input</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">each</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">label</span>, <span class="ruby-identifier">axis</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">dim</span> = <span class="ruby-identifier">dim</span>(<span class="ruby-identifier">operand</span>, <span class="ruby-identifier">axis</span>))
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">FormatError</span>, <span class="ruby-node">&quot;no axis in operand #{pos} corresponds to label #{label}&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">label</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">label</span>].<span class="ruby-identifier">dimension</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">dim</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">FormatError</span>, <span class="ruby-node">&quot;inconsistent dimension for label #{label}: #{labels[label].dimension} and #{dim}&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">label</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dim</span>)
+      <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">label</span>].<span class="ruby-identifier">increment</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># if implicit mode, generate output labels string from all</span>
+  <span class="ruby-comment"># labels mentioned only once in the input labels strings</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">explicit</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">groups</span> = <span class="ruby-identifier">labels</span>.<span class="ruby-identifier">group_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">count</span> }[<span class="ruby-value">1</span>])
+    <span class="ruby-identifier">output</span> = <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:first</span>).<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">join</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># compute shape of the result</span>
+  <span class="ruby-identifier">shape</span> = []
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">label</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">label</span>]
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">FormatError</span>, <span class="ruby-node">&quot;output label #{label} not present in input labels&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">shape</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">label</span>].<span class="ruby-identifier">dimension</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># generate template for result</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">shape</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">empty</span>(<span class="ruby-identifier">shape</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># generate code for the specified operations. first, loop over</span>
+  <span class="ruby-comment"># each output axis in the order specified by the output labels.</span>
+  <span class="ruby-comment"># then, loop over the remaining input axes and compute the</span>
+  <span class="ruby-comment"># result for each cell in the output matrix.</span>
+
+  <span class="ruby-identifier">code</span> = []
+  <span class="ruby-identifier">internal</span> = <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">uniq</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">output</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-identifier">external</span> = <span class="ruby-identifier">output</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;&#39;</span>)
+
+  <span class="ruby-identifier">external</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">label</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">code</span>.<span class="ruby-identifier">push</span>(<span class="ruby-node">&quot;#{labels[label].dimension}.times do |#{label}|&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">internal</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">label</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">code</span>.<span class="ruby-identifier">push</span>(<span class="ruby-node">&quot;#{labels[label].dimension}.times do |#{label}|&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">external_labels</span> = <span class="ruby-identifier">external</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;[#{l}]&quot;</span> }.<span class="ruby-identifier">join</span>
+  <span class="ruby-identifier">code</span>.<span class="ruby-identifier">push</span>(<span class="ruby-node">&quot;result#{external_labels} +=&quot;</span>)
+
+  <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">each</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">input</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">input_labels</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;[#{l}]&quot;</span> }.<span class="ruby-identifier">join</span>
+    <span class="ruby-identifier">suffix</span> = <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39; *&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-identifier">code</span>.<span class="ruby-identifier">push</span>(<span class="ruby-node">&quot;operands[#{i}]#{input_labels}#{suffix}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">internal</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">code</span>.<span class="ruby-identifier">push</span>(<span class="ruby-string">&#39;end&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">external</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">code</span>.<span class="ruby-identifier">push</span>(<span class="ruby-string">&#39;end&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># evaluate the generated code in the current context. this would</span>
+  <span class="ruby-comment"># be considered dangerous, except we are in control of generated</span>
+  <span class="ruby-comment"># code except loop variable names, which are derived from input</span>
+  <span class="ruby-comment"># and output labels, which are constrained to be individual,</span>
+  <span class="ruby-comment"># lowercase characters, which are bound in their respective</span>
+  <span class="ruby-comment"># loops.</span>
+
+  <span class="ruby-comment"># rubocop:disable Security/Eval</span>
+  <span class="ruby-identifier">binding</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">code</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+  <span class="ruby-comment"># rubocop:enable Security/Eval</span>
+
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

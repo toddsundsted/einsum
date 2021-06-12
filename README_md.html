@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Einsum">Einsum</a>
+    <li><a href="#label-Installation">Installation</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Development">Development</a>
+    <li><a href="#label-Contributing">Contributing</a>
+    <li><a href="#label-License">License</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./README_md.html">README</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.md">
+
+<h1 id="label-Einsum"><a href="Einsum.html">Einsum</a><span><a href="#label-Einsum">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><a href="https://travis-ci.org/toddsundsted/einsum"><img
+src="https://travis-ci.org/toddsundsted/einsum.svg?branch=master"></a> <a
+href="https://toddsundsted.github.io/einsum/"><img
+src="https://img.shields.io/badge/docs-available-brightgreen.svg"></a></p>
+
+<p>Unoptimized, pure-Ruby implementation of a subset of Numpy
+<code>einsum</code>.</p>
+
+<p>See: <a
+href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.einsum.html">docs.scipy.org/doc/numpy/reference/generated/numpy.einsum.html</a></p>
+
+<h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Add this to your application&#39;s Gemfile:</p>
+
+<pre class="ruby"><span class="ruby-identifier">gem</span> <span class="ruby-string">&#39;einsum&#39;</span>
+</pre>
+
+<p>And then execute:</p>
+
+<pre>$ bundle</pre>
+
+<p>Or install it manually:</p>
+
+<pre>$ gem install einsum</pre>
+
+<h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Evaluates the (extended) Einstein summation convention on the operands.</p>
+
+<p>Operands must be <code>Array</code> like. Array elements must respond to
+<code>*</code> and <code>+</code>.</p>
+
+<p>Implicit mode:</p>
+
+<pre class="ruby"><span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,jk&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; dot product: [[7, 10], [15, 22]]</span>
+<span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,kj&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; inner product: [[ 5, 11], [11, 25]]</span>
+</pre>
+
+<p>Explicit mode:</p>
+
+<pre class="ruby"><span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,jk-&gt;ik&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; dot product: [[7, 10], [15, 22]]</span>
+<span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,kj-&gt;ik&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; inner product: [[ 5, 11], [11, 25]]</span>
+<span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,jk-&gt;&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; 54</span>
+<span class="ruby-constant">Einsum</span>.<span class="ruby-identifier">einsum</span>(<span class="ruby-string">&#39;ij,kj-&gt;&#39;</span>, [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]], [[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">4</span>]]) <span class="ruby-comment"># =&gt; 52</span>
+</pre>
+
+<h2 id="label-Development">Development<span><a href="#label-Development">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>After checking out the repository, run <code>bin/setup</code> to install
+dependencies. Run <code>bin/console</code> for an interactive prompt. Run
+<code>rake spec</code> to run the tests.</p>
+
+<p>To install this gem locally, run <code>bundle exec rake install</code>. To
+release a new version, update the version number in <code>version.rb</code>
+and then run <code>bundle exec rake release</code>, which will create a git
+tag for the version, push git commits and tags, and push the
+<code>.gem</code> file to <a href="https://rubygems.org">rubygems.org</a>.</p>
+
+<h2 id="label-Contributing">Contributing<span><a href="#label-Contributing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Bug reports and pull requests are welcome on GitHub at (<a
+href="https://github.com/toddsundsted/einsum">github.com/toddsundsted/einsum</a>).</p>
+
+<h2 id="label-License">License<span><a href="#label-License">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The gem is available as open source under the terms of the <a
+href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
